@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobeyda Trenzas & Beauty</title>
+  
+  <!-- FontAwesome / Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-wine-dark: #320710;
+      --bg-wine: #50101d;
+      --bg-wine-light: #70192b;
+      --gold-primary: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa820a;
+      --text-light: #f8f9fa;
+      --text-muted: #d1c2c5;
+      --glass-bg: rgba(80, 16, 29, 0.55);
+      --glass-border: rgba(212, 175, 55, 0.3);
+      --font-title: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-wine-dark);
+      color: var(--text-light);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      color: var(--gold-light);
+    }
+
+    span {
+      color: var(--gold-primary);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .bg-dark {
+      background-color: rgba(20, 3, 7, 0.4);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .sub-title {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .gold-divider {
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin: 15px auto 30px;
+    }
+
+    /* BOTONES */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+      color: #1a0307;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    }
+
+    .btn-outline {
+      border: 2px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 10px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold-primary);
+      color: #1a0307;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(30, 4, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
+      padding: 12px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+    }
+
+    .brand-name {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero-section {
+      position: relative;
+      min-height: 90vh;
+      background: url('WhatsApp Image 2026-10-21 at 7.05.31 PM.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(32, 5, 12, 0.85) 0%, rgba(80, 16, 29, 0.92) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* DUEÑA SECTION */
+    .owner-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .owner-image-wrapper {
+      position: relative;
+    }
+
+    .owner-image-placeholder {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .owner-image-placeholder img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .owner-badge {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: var(--gold-primary);
+      color: #1a0307;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .owner-info h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .owner-bio {
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .owner-features {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .feature-item {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--glass-border);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+    }
+
+    /* SERVICIOS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold-primary);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--gold-primary);
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* GALERÍA */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: var(--text-light);
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold-primary);
+      color: #1a0307;
+      border-color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 320px;
+      border: 1px solid var(--glass-border);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(50, 7, 16, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: 0.3s ease;
+      color: var(--gold-light);
+      gap: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay i {
+      font-size: 1.8rem;
+      color: var(--gold-primary);
+    }
+
+    /* FORMULARIO RESERVAS */
+    .booking-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .booking-form .form-group {
+      margin-bottom: 20px;
+    }
+
+    .booking-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+    }
+
+    .booking-form input, .booking-form select {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(20, 3, 7, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      color: var(--text-light);
+      outline: none;
+    }
+
+    .booking-form input:focus, .booking-form select:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      border: 2px solid var(--gold-primary);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      font-size: 2.5rem;
+      color: var(--gold-primary);
+      cursor: pointer;
+    }
+
+    .lightbox-caption {
+      margin-top: 15px;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float-container {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1500;
+    }
+
+    .whatsapp-float-btn {
+      width: 60px;
+      height: 60px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      transition: 0.3s;
+    }
+
+    .whatsapp-float-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-popup {
+      display: none;
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      width: 300px;
+      background: #1a0307;
+      border: 1px solid var(--glass-border);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .whatsapp-popup.active {
+      display: block;
+    }
+
+    .wa-popup-header {
+      background: var(--bg-wine);
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-popup-header img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .wa-popup-header h4 {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .wa-popup-header span {
+      font-size: 0.7rem;
+      color: #25d366;
+    }
+
+    .wa-popup-header button {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .wa-popup-body {
+      padding: 15px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .wa-popup-btn {
+      display: block;
+      background: #25d366;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #100204;
+      padding: 40px 0;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      margin-bottom: 10px;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .footer-socials a {
+      color: var(--gold-primary);
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .footer-socials a:hover {
+      background: var(--gold-primary);
+      color: #1a0307;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .owner-card {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 4, 10, 0.98);
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .nav-btn {
+        display: none;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">
+        <img src="WhatsApp Image 2026-10-21 at 7.14.14 PM (1).jpeg" alt="Sobeyda Trenzas Logo" />
+        <span class="brand-name">Sobeyda <span>Trenzas</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#owner">La Dueña</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#gallery">Galería</a></li>
+        <li><a href="#booking">Reservas</a></li>
+      </ul>
+      <a href="#booking" class="btn-gold nav-btn"><i class="fa-solid fa-calendar-check"></i> Agendar Cita</a>
+      <button class="mobile-toggle" id="mobileMenuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fa-solid fa-crown"></i> Arte & Estilo de Trenzado</div>
+      <h1>Belleza, Estilo y <span>Confianza</span></h1>
+      <p>Transformamos tu estilo con diseños exclusivos de trenzas para damas y caballeros. Perfección en cada detalle.</p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-gold"><i class="fa-solid fa-calendar-day"></i> Reservar Cita</a>
+        <a href="#gallery" class="btn-outline"><i class="fa-solid fa-images"></i> Ver Trabajos</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN DE LA DUEÑA -->
+  <section id="owner" class="section owner-section">
+    <div class="container">
+      <div class="owner-card">
+        <div class="owner-image-wrapper">
+          <div class="owner-image-placeholder">
+            <img id="ownerPhoto" src="sobe.jpeg" alt="Sobeyda - Dueña y Estilista Principal" />
+            <div class="owner-badge"><i class="fa-solid fa-star"></i> Fundadora</div>
+          </div>
+        </div>
+        <div class="owner-info">
+          <span class="sub-title">Conoce a la Experta</span>
+          <h2>Sobeyda <span>- Creadora & Estilista</span></h2>
+          <p class="owner-bio">
+            Bienvenidos a Sobeyda Trenzas & Beauty. Apasionada por el arte del trenzado y el cuidado del cabello, mi objetivo es resaltar tu belleza natural a través de diseños únicos, precisos y duraderos. Cada trabajo refleja dedicación, elegancia y autenticidad.
+          </p>
+          <div class="owner-features">
+            <div class="feature-item"><i class="fa-solid fa-gem"></i> Calidad Premium</div>
+            <div class="feature-item"><i class="fa-solid fa-heart"></i> Atención Personalizada</div>
+            <div class="feature-item"><i class="fa-solid fa-scissors"></i> Diseños Creativos</div>
+          </div>
+          <a href="#booking" class="btn-gold"><i class="fa-solid fa-calendar-check"></i> Agendar con Sobeyda</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="services" class="section bg-dark">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title">Nuestra Especialidad</span>
+        <h2>Servicios <span>Destacados</span></h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fa-solid fa-wand-magic-sparkles service-icon"></i>
+          <h3>Diseños Geométricos & Hoja</h3>
+          <p>Trenzas pegadas al cuero cabelludo con patrones en espiga, hojas y formas geométricas personalizadas.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-venus-mars service-icon"></i>
+          <h3>Trenzas Masculinas</h3>
+          <p>Líneas limpias, partis definidos, combinaciones cruzadas en X y twists estilizados para caballeros.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-spa service-icon"></i>
+          <h3>Fulani & Rizos Sueltos</h3>
+          <p>Mezcla de trenzados tradicionales con extensiones rizadas en tonos degradados para damas.</p>
+        </div>
+        <div class="service-card">
+          <i class="fa-solid fa-ribbon service-icon"></i>
+          <h3>Twists & Diamantes</h3>
+          <p>Divisiones simétricas en diamante con giros dobles resistentes y acabados de alta definición.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE TRABAJOS REALIZADOS -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title">Portafolio Real</span>
+        <h2>Trabajos <span>Realizados</span></h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <!-- Filtros de Galería -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="caballeros">Caballeros</button>
+        <button class="filter-btn" data-filter="damas">Damas</button>
+        <button class="filter-btn" data-filter="creativos">Diseños Creativos</button>
+      </div>
+
+      <!-- Grid de Imágenes Reales -->
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="caballeros creativos">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.21 PM (1).jpeg" alt="Trenzas Hoja Caballero" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Patrón Geométrico Hoja</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.21 PM (2).jpeg" alt="Cornrows V Caballero" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Diseño en V / Espiga</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros creativos">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.22 PM.jpeg" alt="Trenzas Curvas Caballero" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Patrones Curvos</span></div>
+        </div>
+        <div class="gallery-item" data-category="damas">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.31 PM.jpeg" alt="Fulani Braids Rizos Dama" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Fulani Braids & Rizos</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros">
+          <img src="WhatsApp Image 2026-10-21 at 7.14.14 PM.jpeg" alt="Cornrows Clásicas" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Cornrows Definidas</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros creativos">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.21 PM (3).jpeg" alt="Trenzas Cruzadas en X" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Efecto Cruzado en X</span></div>
+        </div>
+        <div class="gallery-item" data-category="damas">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.21 PM.jpeg" alt="Braids con Rizos Rubio Dama" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Braids Rizos Rubio/Castaño</span></div>
+        </div>
+        <div class="gallery-item" data-category="damas">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.22 PM (1).jpeg" alt="Trenzas Rizas Dama" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Estilo Ondulado Dama</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros creativos">
+          <img src="WhatsApp Image 2026-10-21 at 7.05.34 PM.jpeg" alt="Trenzas Hoja Simétrica" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Hoja de Palma Simétrica</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros creativos">
+          <img src="WhatsApp Image 2026-10-21 at 7.14.09 PM (1).jpeg" alt="Twists Diamante" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Twists con Partis Diamante</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros">
+          <img src="WhatsApp Image 2026-10-21 at 7.14.09 PM.jpeg" alt="Trenzas Espiga Superior" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Espiga Central</span></div>
+        </div>
+        <div class="gallery-item" data-category="caballeros damas">
+          <img src="WhatsApp Image 2026-10-21 at 7.14.15 PM.jpeg" alt="Trenzas Color Bicolor" />
+          <div class="gallery-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Trenzas con Color Bicolor</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE RESERVAS -->
+  <section id="booking" class="section bg-dark">
+    <div class="container">
+      <div class="booking-wrapper">
+        <div class="section-header text-center">
+          <span class="sub-title">Planifica tu Visita</span>
+          <h2>Agenda tu <span>Cita</span></h2>
+          <p>Selecciona la fecha y tu estilo deseado para enviar tu solicitud directamente a nuestro WhatsApp.</p>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> Nombre Completo</label>
+            <input type="text" id="clientName" placeholder="Tu nombre..." required />
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-phone"></i> Teléfono / WhatsApp</label>
+            <input type="tel" id="clientPhone" placeholder="Tu número de contacto..." required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fa-solid fa-scissors"></i> Servicio / Estilo</label>
+              <select id="serviceSelect" required>
+                <option value="Diseño Geométrico / Hoja">Diseño Geométrico / Hoja</option>
+                <option value="Cornrows Masculinas">Cornrows Masculinas</option>
+                <option value="Fulani Braids con Rizos">Fulani Braids con Rizos</option>
+                <option value="Twists / Partis Diamante">Twists / Partis Diamante</option>
+                <option value="Otro Estilo Personalizado">Otro Estilo Personalizado</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fa-solid fa-calendar"></i> Fecha Preferida</label>
+              <input type="date" id="bookingDate" required />
+            </div>
+          </div>
+          <button type="submit" class="btn-gold btn-block"><i class="fa-brands fa-whatsapp"></i> Confirmar y Enviar por WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <img src="WhatsApp Image 2026-10-21 at 7.14.14 PM (1).jpeg" alt="Logo" class="footer-logo" />
+      <h3>Sobeyda Trenzas & Beauty</h3>
+      <p>Belleza • Estilo • Confianza</p>
+      <div class="footer-socials">
+        <a href="https://wa.me/18295538182" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+      <p class="copyright">&copy; 2026 Sobeyda Trenzas & Beauty. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL PARA FOTOS -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImg" src="" alt="Vista previa amplia" />
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE Y POPUP DE WHATSAPP -->
+  <div class="whatsapp-float-container">
+    <div class="whatsapp-popup" id="waPopup">
+      <div class="wa-popup-header">
+        <img src="WhatsApp Image 2026-10-21 at 7.14.14 PM (1).jpeg" alt="Sobeyda Logo" />
+        <div>
+          <h4>Sobeyda Trenzas</h4>
+          <span>En línea • Responde rápido</span>
+        </div>
+        <button id="waCloseBtn">&times;</button>
+      </div>
+      <div class="wa-popup-body">
+        <p>👋 ¡Hola! ¿Deseas consultar disponibilidad o agendar tu cita para trenzas?</p>
+      </div>
+      <a id="waDirectBtn" href="https://wa.me/18295538182?text=Hola%20Sobeyda,%20quisiera%20consultar%20por%20sus%20servicios%20de%20trenzas." target="_blank" class="wa-popup-btn">
+        <i class="fa-brands fa-whatsapp"></i> Abrir Chat de WhatsApp
+      </a>
+    </div>
+    <button class="whatsapp-float-btn" id="waFloatBtn" title="Chatear por WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </button>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Menú Móvil Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navLinks = document.getElementById('navLinks');
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // 2. Filtro Dinámico de Galería
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          galleryItems.forEach(item => {
+            const categories = item.getAttribute('data-category');
+            if (filterValue === 'all' || categories.includes(filterValue)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 3. Modal Lightbox de Fotos
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const img = item.querySelector('img');
+          const caption = item.querySelector('.gallery-overlay span').innerText;
+          lightboxImg.src = img.src;
+          lightboxCaption.innerText = caption;
+          lightbox.classList.add('active');
+        });
+      });
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('active');
+        }
+      });
+
+      // 4. Formulario de Reserva con envío directo a WhatsApp
+      const bookingForm = document.getElementById('bookingForm');
+
+      bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('clientName').value;
+        const phone = document.getElementById('clientPhone').value;
+        const service = document.getElementById('serviceSelect').value;
+        const date = document.getElementById('bookingDate').value;
+
+        // Número oficial configurado
+        const whatsappNum = "18295538182"; 
+        
+        const message = `*NUEVA RESERVA DE CITA*%0A` +
+                        `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                        `*Teléfono:* ${encodeURIComponent(phone)}%0A` +
+                        `*Estilo/Servicio:* ${encodeURIComponent(service)}%0A` +
+                        `*Fecha:* ${encodeURIComponent(date)}`;
+
+        window.open(`https://wa.me/${whatsappNum}?text=${message}`, '_blank');
+      });
+
+      // 5. Botón Flotante y Popup de WhatsApp
+      const waFloatBtn = document.getElementById('waFloatBtn');
+      const waPopup = document.getElementById('waPopup');
+      const waCloseBtn = document.getElementById('waCloseBtn');
+
+      waFloatBtn.addEventListener('click', () => {
+        waPopup.classList.toggle('active');
+      });
+
+      waCloseBtn.addEventListener('click', () => {
+        waPopup.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
